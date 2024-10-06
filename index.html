@@ -125,15 +125,15 @@ MRI: An Image Quality Assessment Perspective</title>
 <!--                  <span>Paper</span>-->
 <!--                </a>-->
 <!--              </span>-->
-              <span class="link-block">
-                <a href="https://arxiv.org/abs/2408.08228"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="ai ai-arxiv"></i>
-                  </span>
-                  <span>arXiv</span>
-                </a>
-              </span>
+<!--              <span class="link-block">-->
+<!--                <a href="https://arxiv.org/abs/2408.08228"-->
+<!--                   class="external-link button is-normal is-rounded is-dark">-->
+<!--                  <span class="icon">-->
+<!--                      <i class="ai ai-arxiv"></i>-->
+<!--                  </span>-->
+<!--                  <span>arXiv</span>-->
+<!--                </a>-->
+<!--              </span>-->
               <!-- Video Link. -->
 <!--              <span class="link-block">-->
 <!--                <a href="https://www.youtube.com/watch?v=MrKrnHhk8IA"-->
@@ -146,7 +146,7 @@ MRI: An Image Quality Assessment Perspective</title>
 <!--              </span>-->
               <!-- Code Link. -->
               <span class="link-block">
-                <a href="https://github.com/zx-pan/MedAnomalyDetection-IQA?tab=readme-ov-file"
+                <a href="https://github.com/REINEDSFS/Active-Learning-Guided-Exploration-of-Thermally-Conductive-Polymers-Under-Strain"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fab fa-github"></i>
@@ -154,15 +154,15 @@ MRI: An Image Quality Assessment Perspective</title>
                   <span>Code</span>
                   </a>
               </span>
-              <!-- Dataset Link. -->
-              <span class="link-block">
-                <a href="https://github.com/zx-pan/MedAnomalyDetection-IQA?tab=readme-ov-file#data"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="far fa-images"></i>
-                  </span>
-                  <span>Data</span>
-                  </a>
+<!--              &lt;!&ndash; Dataset Link. &ndash;&gt;-->
+<!--              <span class="link-block">-->
+<!--                <a href="https://github.com/zx-pan/MedAnomalyDetection-IQA?tab=readme-ov-file#data"-->
+<!--                   class="external-link button is-normal is-rounded is-dark">-->
+<!--                  <span class="icon">-->
+<!--                      <i class="far fa-images"></i>-->
+<!--                  </span>-->
+<!--                  <span>Data</span>-->
+<!--                  </a>-->
             </div>
 
           </div>
@@ -259,17 +259,9 @@ MRI: An Image Quality Assessment Perspective</title>
           </p>
           <!-- insert figure here -->
           <p>
-            <img src="./static/images/model.png" alt="model image."/>
+            <img src="./static/images/schematic.png" alt="schematic image."/>
 
-          </p>
-          Overview of our reconstruction-based anomaly detection method using a denoising autoencoder (DAE) as the reconstruction model.
-During training, the normal dataset X<sub>n</sub> is augmented with the proposed AIR enhancement pre-processinig strategy and corrupted to form the noisy normal dataset X<sub>n</sub>&prime; using simplex noise.
-The model is then trained by denoising X<sub>n</sub> and minimizing the fusion quality loss L<sub>FQ</sub> between the reconstruction <span style="position: relative; display: inline-block;">
-    <span style="position: absolute; top: -10px; left: 2px;">&Hat;</span>
-    X<sub>n</sub>
-</span> and the original normal dataset X<sub>n</sub>. During inference, the abnormal test dataset X<sub>a</sub> undergoes the same process.
-The anomalies in X<sub>a</sub> are expected to be poorly reconstructed, resulting in higher values in the L<sub>FQ</sub>-based anomaly map.
-The final anomaly map is thresholded for segmentation, with performance measured by DICE and AUPRC.
+
         </div>
       </div>
     </div>
@@ -279,122 +271,10 @@ The final anomaly map is thresholded for segmentation, with performance measured
       <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
 <h2 class="title is-3">Results</h2>
-<head>
-    <title>Table Conversion</title>
-    <style>
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-        th, td {
-            border: 1px solid black;
-            padding: 8px;
-            text-align: center;
-        }
-        th {
-            background-color: #f2f2f2;
-        }
-        caption {
-            caption-side: top;
-            font-size: 16px;
-            font-weight: bold;
-            text-align: center;
-            padding: 10px;
-        }
-        .highlight {
-            background-color: gray;
-        }
-    </style>
-</head>
-<body>
-    <table>
-        <caption>Comparison with baselines in terms of DICE and AUPRC on BraTS21 and MSLUB using T2 modality in a <strong>cross-dataset</strong> setting. The model is trained on the IXI dataset, which contains only healthy samples. The best results for a given metric/dataset are bolded, and the second-best are underlined.</caption>
-        <thead>
-            <tr>
-                <th rowspan="2">Method</th>
-                <th colspan="2">BraTS21 (T2)</th>
-                <th colspan="2">MSLUB (T2)</th>
-            </tr>
-            <tr>
-                <th>DICE [%]</th>
-                <th>AUPRC [%]</th>
-                <th>DICE [%]</th>
-                <th>AUPRC [%]</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Thresh <a href="https://dl.acm.org/doi/abs/10.1007/978-3-031-08999-2_5">[1]</a></td>
-                <td>19.69</td>
-                <td>20.27</td>
-                <td>6.21</td>
-                <td>4.23</td>
-            </tr>
-            <tr>
-                <td>AE <a href="https://www.sciencedirect.com/science/article/abs/pii/S1361841520303169">[2]</a></td>
-                <td>32.87±1.25</td>
-                <td>31.07±1.75</td>
-                <td>7.10±0.68</td>
-                <td>5.58±0.26</td>
-            </tr>
-            <tr>
-                <td>VAE <a href="https://www.sciencedirect.com/science/article/abs/pii/S1361841520303169">[2]</a></td>
-                <td>31.11±1.50</td>
-                <td>28.80±1.92</td>
-                <td>6.89±0.09</td>
-                <td>5.00±0.40</td>
-            </tr>
-            <tr>
-                <td>SVAE <a href="https://www.researchgate.net/publication/360860067_Capturing_Inter-Slice_Dependencies_of_3D_Brain_MRI-Scans_for_Unsupervised_Anomaly_Detection">[3]</a></td>
-                <td>33.32±0.14</td>
-                <td>33.14±0.20</td>
-                <td>5.76±0.44</td>
-                <td>5.04±0.13</td>
-            </tr>
-            <tr>
-                <td>DAE <a href="https://proceedings.mlr.press/v172/kascenas22a.html">[4]</a></td>
-                <td>37.05±1.42</td>
-                <td>44.99±1.72</td>
-                <td>3.56±0.91</td>
-                <td>5.35±0.45</td>
-            </tr>
-            <tr>
-                <td>f-AnoGAN <a href="https://pubmed.ncbi.nlm.nih.gov/30831356/">[5]</a></td>
-                <td>24.16±2.94</td>
-                <td>22.05±3.05</td>
-                <td>4.18±1.18</td>
-                <td>4.01±0.90</td>
-            </tr>
-            <tr>
-                <td>DDPM <a href="https://www.mdpi.com/2079-8954/11/9/484">[6]</a></td>
-                <td>40.67±1.21</td>
-                <td>49.78±1.02</td>
-                <td>6.42±1.60</td>
-                <td>7.44±0.52</td>
-            </tr>
-            <tr>
-                <td>mDDPM <a href="https://link.springer.com/chapter/10.1007/978-3-031-45673-2_37">[7]</a></td>
-                <td><u>51.31±0.66</u></td>
-                <td><u>57.09±0.94</u></td>
-                <td>8.08±0.70</td>
-                <td>9.06±0.62</td>
-            </tr>
-            <tr>
-                <td>pDDPM <a href="https://proceedings.mlr.press/v227/behrendt24a.html">[8]</a></td>
-                <td>49.41±0.66</td>
-                <td>54.76±0.83</td>
-                <td><u>10.65±1.05</u></td>
-                <td><u>10.37±0.51</u></td>
-            </tr>
-            <tr class="highlight">
-                <td>pDDPM-IQA (ours)</td>
-                <td><strong>59.45±0.37</strong></td>
-                <td><strong>62.99±0.37</strong></td>
-                <td><strong>12.93±0.67</strong></td>
-                <td><strong>11.51±0.50</strong></td>
-            </tr>
-        </tbody>
+          <p style="text-align: justify;">
+    This study showed the effectiveness of an active learning framework in accelerating the discovery of thermally conductive strained polymers. By combining ML techniques with MD simulations, we efficiently identified strained polymers with high TC. Despite the initial sparsity of our initial dataset, the active learning algorithm dynamically identified the most informative data points for further consideration. By continuously integrating these points into the training dataset, we progressively enhanced the performance of the surrogate GPR model. After eight rounds of active learning, we discovered 30 polymers that have MD-labeled TC above 0.8 W/m·K, among which 10 polymers have TC greater than 1.0 W/m·K. Our analysis of selected high TC polymer revealed that polymers with simple linear chain structures can have enhanced chain alignment after strain, which helps increase TC. Additionally, these high TC polymers are promising candidates for synthesis, as indicated by their relatively low SA scores, suggesting their practical feasibility. This study may provide insights into the structural characteristics favorable for achieving high TC in strained polymers and demonstrates the considerable potential of an active learning-based GPR model in expediting the discovery of advanced thermal materials.
+</p>
+          </tbody>
         <tfoot>
 <!--            <tr>-->
 <!--                <td colspan="5">References are indicated by the numbers in square brackets linked to the actual citations.</td>-->
@@ -404,13 +284,13 @@ The final anomaly map is thresholded for segmentation, with performance measured
 </body>
 
 <!-- insert figure here -->
- <br><br><br>
-            <div style="text-align: center;">
-    <p>
-        <img src="./static/images/results.png" alt="results image" style="display: block; margin-left: auto; margin-right: auto;"/>
-    </p>
-    <p>Qualitative visualization on the BraTS21 test set. Columns 2-5 show anomaly maps from different methods for three samples.</p>
-</div>
+<!-- <br><br><br>-->
+<!--            <div style="text-align: center;">-->
+<!--    <p>-->
+<!--        <img src="./static/images/results.png" alt="results image" style="display: block; margin-left: auto; margin-right: auto;"/>-->
+<!--    </p>-->
+<!--    <p>Qualitative visualization on the BraTS21 test set. Columns 2-5 show anomaly maps from different methods for three samples.</p>-->
+<!--</div>-->
 
     <!--/ Abstract. -->
 
